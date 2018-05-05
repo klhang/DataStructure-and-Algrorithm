@@ -2,8 +2,11 @@ import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-      int[] test = new int[]{1,2,3};
-
-      System.out.println(IntStream.of(test).max());
+      List<Integer> test = new ArrayList<Integer>();
+      test.add(1);
+      test.add(2);
+      test.add(3);
+      test.remove(1);
+      System.out.println(test);
     }
   }
