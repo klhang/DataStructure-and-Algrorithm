@@ -1,3 +1,5 @@
+```java
+
 ! all about map
 clear()
 Removes all of the mappings from this map (optional operation).
@@ -54,3 +56,8 @@ Returns a Collection view of the values contained in this map.
 !map of <Integer, List> or map of <Integer, Set>    ->>> Map.get(0).add(1);   map of <Integer, Integer> ->>> map.put(0, map.get(0) + 1);
 
 ! lc403 map of list, map of set, 优先用set，可以去重，可以iterate，add，size， contains, remove
+
+! lc384 Random rand = new Random(); int pos = rand.nextInt(arr.length - i) + i;
+
+
+```
