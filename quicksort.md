@@ -1,3 +1,4 @@
+```java
 import java.util.*;
 
 public class test {
@@ -63,4 +64,5 @@ public class test {
       System.out.println(arr[5]);
       System.out.println(arr[6]);
     }
-  }
+}
+```
