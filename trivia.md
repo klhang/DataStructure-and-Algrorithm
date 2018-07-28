@@ -46,7 +46,7 @@ Returns a Collection view of the values contained in this map.
 
 ! total += Integer.parseInt(s);
 
-! Arrays.sort((a, b) -> Integer.compare(a[0], b[0]));
+! Arrays.sort(arr, (a, b) -> Integer.compare(a[0], b[0]));
 
 ! sum path problems -> String ,Integer, Boolean pass by value, List<Integer> path pass by reference, so need to backtracking by path.remove(path.size() -1);  
 
@@ -59,5 +59,19 @@ Returns a Collection view of the values contained in this map.
 
 ! lc384 Random rand = new Random(); int pos = rand.nextInt(arr.length - i) + i;
 
-
+! String.valueOf(int)
+! String.toLowerCase()
+! String.replaceAll("[^a-z ]", "");
+! map.put(str, map.getOrDefault(str, 0) + 1);
+! list.toArray(); -> Object[]
+! Arrays.sort(arr, (a,b) -> Integer.compare(a[0], b[0]));
+! Arrays.sort(arr, new Comparetor<int[]>(){
+    public int compare(int[] a, int[] b){
+      if (a[0] == b[0]){
+        return a[1] - b[1];
+      } else {
+        return a[0] - b[0];
+      }
+    }
+  })
 ```
