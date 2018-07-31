@@ -74,4 +74,16 @@ Returns a Collection view of the values contained in this map.
       }
     }
   })
+
+  Arrays.sort(arr, new BothElComparator());
+  Class BothElComparator implements Comparator<int[]>{
+    @override
+    public int compare(int[] a, int[] b){
+      if (a[0] == b[0]){
+        return b[1] - a[1];
+      } else {
+        return a[0] - b[0];
+      }
+    }
+  }
 ```

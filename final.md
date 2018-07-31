@@ -8,24 +8,24 @@
 public int[] getTopk(int[] nums, int k){
   //set + priority queue
   Set<Integer> set = new HashSet<Integer>();
-  PriorityQuee<Integer> pq  = new PriorityQuee<>();
+  PriorityQuee<Integer> minHeap  = new PriorityQuee<>();
 
   for (int num: nums){
     if (!set.contains(num)){
       set.add(num);
     }
 
-    pq.offer(num);
-    if (pq.size() > k){
-      pq.poll();
+    minHeap.offer(num);
+    if (minHeap.size() > k){
+      minHeap.poll();
     }
   }
 
   int[] res = new int[k];
-  int idx = 0;
-  while (!pq.isEmpty()){
-    res[idx] = pq.poll();
-    idx ++;
+  int idx = k -1;
+  while (!minHeap.isEmpty()){
+    res[idx] = minHeap.poll();
+    idx --;
   }
 
   return res;
@@ -48,6 +48,30 @@ public int[] getTopk(int[] nums, int k){
 //  [0 0 0 1]]
 //
 // The first column that contains 1 will be 1st column.  return 1
+public int getFirstColumnContainsOne(int[][] nums){
+  // corner case
+  if(nums == null || nums.length == 0){
+    return -1;
+  }
+  // normal case
+  int res = Integer.MAX_VALUE;
+  int i = 0;
+  int j = nums[0].length -1;
+
+  while (i < nums.length && j > 0){
+    if (nums[i][j] == 1){
+      j--;
+      res = j;
+    } else {
+      i ++;
+    }
+  }
+
+  return res == Integer.MAX_VALUE ? -1 : j + 1;
+}
+
+// horizontally move at most m times, while vertically at most n times.
+
 
 public int getFirstColumnContainsOne(int[][] nums){
   //b-search for n times : O nlogm
@@ -147,7 +171,7 @@ public int maxA(int N) {
 
   int max = 0;
   for (int i = 0; i < n; i++){
-    max = Math.max(i + i * (n-2-i));
+    max = Math.max(max, i + i * (n-2-i));
   }
   return max;
 }
@@ -267,4 +291,87 @@ private pushRightNodes(Deque<Integer> deque, TreeNode root){
   }
 }
 
+
+
+
+/////////------------------ Solution
+public List<Integer> boundaryOfBinaryTree(TreeNode root) { List<Integer> res = new ArrayList<>();
+  if(root == null){
+    return res;
+  }
+  List<Integer> left = new ArrayList<>();
+  List<Integer> right = new ArrayList<>();
+  List<Integer> leaves = new ArrayList<>();
+
+  helper(root, left, right);
+  leaves(root.left, leaves);
+  leaves(root.right, leaves);
+  Set<Integer> set = new HashSet<>();
+
+  for(int i = 0; i < left.size(); i++){
+    res.add(left.get(i));
+    set.add(left.get(i));
+  }
+
+  for(int i = 0; i < leaves.size(); i++){
+    if(set.contains(leaves.get(i))){
+      continue;
+    }
+    res.add(leaves.get(i));
+    set.add(leaves.get(i));
+  }
+
+  for(int i = right.size() - 1; i >= 0; i--){
+     if(set.contains(right.get(i))){
+       continue;
+     }
+     res.add(right.get(i));
+     set.add(right.get(i));
+   }
+
+   return res;
+ }
+
+ public void leaves(TreeNode root, List<Integer> nodes){
+   if (root == null){
+     return;
+   }
+
+   if (root.left == null && root.right == null){
+     nodes.add(root.val);
+     return;
+   }
+
+   leaves(root.left, nodes);
+   leaves(root.right, nodes);
+ }
+
+  public void helper(TreeNode root, List<Integer> left, List<Integer> right){
+     if(root == null){
+        return;
+      }
+      Deque<TreeNode> que = new ArrayDeque<>();
+      que.addLast(root);
+
+      while(!que.isEmpty()){
+        int size = que.size();
+        for(int i = 0; i < size; i++){
+          TreeNode cur = que.removeFirst();
+          if(i == 0){
+            left.add(cur.val);
+          }
+          if(i == size - 1){
+            right.add(cur.val);
+          }
+          if(cur.left != null){
+             que.addLast(cur.left);
+          }
+          if(cur.right != null){
+             que.addLast(cur.right);
+          }
+        }
+      }
+
+      return;
+    }
 ```
