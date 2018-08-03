@@ -87,3 +87,9 @@ Returns a Collection view of the values contained in this map.
     }
   }
 ```
+
+! Tree prblems
+- 1. top-dwon (4 order recursive & iterative) + 往下传参（参数不断更新，+node.val, +1， min-max), 经典题validate-bst, print-pathsum
+- 2. bottom - up : 往上传参; code里先求 l & r, 向上传 maxOrmin(l,r)
+- 3. combination : 先top down， 再bottom up
+- 4. back tracking（for primitive type, pass by value-vs-reference
