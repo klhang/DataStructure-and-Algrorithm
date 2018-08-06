@@ -93,3 +93,11 @@ Returns a Collection view of the values contained in this map.
 - 2. bottom - up : 往上传参; code里先求 l & r, 向上传 maxOrmin(l,r)
 - 3. combination : 先top down， 再bottom up
 - 4. back tracking（for primitive type, pass by value-vs-reference
+
+! Preacessor and successor of bst
+- while loop 左右，保留res，发现新的reset res
+- while loop 本身就是 recursive call，不要在while loop里再 call
+
+！Diameter of bt
+- bottom up to return depth
+- maintain a global max
