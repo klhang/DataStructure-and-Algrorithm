@@ -101,3 +101,10 @@ Returns a Collection view of the values contained in this map.
 ！Diameter of bt
 - bottom up to return depth
 - maintain a global max
+
+！ 字符串常见操作：
+- trim();
+- split(“,”)
+- joint(“,” , stack)
+the Character.toString(char ) method of the Character class.
+the String.valueOf(char ) method of the String Class.
