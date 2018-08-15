@@ -86,7 +86,7 @@ Returns a Collection view of the values contained in this map.
       }
     }
   }
-```
+
 
 ! Tree prblems
 - 1. top-dwon (4 order recursive & iterative) + 往下传参（参数不断更新，+node.val, +1， min-max), 经典题validate-bst, print-pathsum
@@ -108,3 +108,18 @@ Returns a Collection view of the values contained in this map.
 - joint(“,” , stack)
 the Character.toString(char ) method of the Character class.
 the String.valueOf(char ) method of the String Class.
+
+
+
+!All about Heap
+- build a min || max heap of unsorted arr.
+1. find idx of the last internal node: idx = A.length/2 -2
+2. perform heapify back backwards, starting from idx:  while (idx > 0), heapify(i)
+3. heapify(idx):  get L and R from idx, smallest = L or R; swap arr[idx] and arr[smallest], recursively heapify(smallest)
+4. time:o(n) ; space:o(1)
+
+- heap sort (max-heap to sort inorderly, min-heap to sort reversely)
+1. build heap with heapifyHelper()
+2. for (i = n -1) {swap (root, last), and heapify(arr, i, 0)
+3. time: O(nlogn), space:O(1)
+```

@@ -90,3 +90,17 @@ class ConvertHeap
     }
 }
 ```
+
+
+
+BUILD-HEAP(A)
+    heapsize := size(A);
+    for i := floor(heapsize/2) downto 1
+        do HEAPIFY(A, i);
+    end for
+END
+
+* A quick look over the above algorithm suggests that the running time is O(nlg(n)), since each call to Heapify costs O(lg(n)) and Build-Heap makes O(n) such calls.
+This upper bound, though correct, is not asymptotically tight.
+
+We can derive a tighter bound by observing that the running time of Heapify depends on the height of the tree ‘h’ (which is equal to lg(n), where n is number of nodes) and the heights of most sub-trees are small.
