@@ -136,7 +136,9 @@ Returns a Collection view of the values contained in this map.
 - joint(“,” , stack)
 the Character.toString(char ) method of the Character class.
 the String.valueOf(char ) method of the String Class.
-
+- Arrays.copyOfRange(arr, l, r) inclusive
+- Arrays.toString(arr);
+- str.toCharArray();
 
 
 !All about Heap
