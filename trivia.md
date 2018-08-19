@@ -90,9 +90,37 @@ Returns a Collection view of the values contained in this map.
 
 ! Tree prblems
 - 1. top-dwon (4 order recursive & iterative) + 往下传参（参数不断更新，+node.val, +1， min-max), 经典题validate-bst, print-pathsum
+- 1.5. 如果是自上而下，做的事情要放在两次递归调用之前。而且递归函数往往是void，不需要返回值。
 - 2. bottom - up : 往上传参; code里先求 l & r, 向上传 maxOrmin(l,r)
 - 3. combination : 先top down， 再bottom up
 - 4. back tracking（for primitive type, pass by value-vs-reference
+
+- topDown vs bottomUp
+-a. 掌握好buttom-up的常⻅模版，“先递归再做事”:
+    public int buttomUp(TreeNode root) {
+      if (root == null) return 0; // stop here
+      // first calculate left and right by recursion
+      int left = buttomUp(root.left);
+      int right = buttomUp(root.right);
+      // do something after the recursion
+    }
+-b. 与之对比是top-down的常⻅模版，“先做事再递归”:
+  // Type1: intermediate result
+  // Type2: the final result (or result set)
+    public void topDown(TreeNode root, Type1 item, Type2 res) {
+      if (root == null) return; // stop here
+      // do something first
+      if (root.left == null && root.right == null) {
+        doSomething(item, root.val);
+      }
+      // then do recursion for left and right
+      topDown(root.left, item, res);
+      topDown(root.right, item, res);
+
+
+
+
+
 
 ! Preacessor and successor of bst
 - while loop 左右，保留res，发现新的reset res
