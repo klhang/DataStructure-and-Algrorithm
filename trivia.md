@@ -152,4 +152,43 @@ the String.valueOf(char ) method of the String Class.
 1. build heap with heapifyHelper()
 2. for (i = n -1) {swap (root, last), and heapify(arr, i, 0)
 3. time: O(nlogn), space:O(1)
+
+
+！All about graph
+* 点是什么，边是什么，贪心策略是什么
+
+1. 能否到达： dfs/bfs  -  建visited, 当前traverse点的横纵坐标 == destination的横纵坐标
+- 无向图，helper- dirs, isValid,
+- unit length
+- not unit length - maze - while valid {x += dir[0]; y+= dir[1]}
+- 有时逆向，海水倒灌
+
+1.5 shortest path: bfs/pq
+- unit length: while loop里 count++
+- not unit length: shortest cost 排第一位, 贪心策略：先走最小cost的
+
+2. 是否有环：dfs/bfs - 建visited 三个状态（0,1,2），当前traverse点是否已经visited
+- 有向图，建adjacent matrix 和 indegree(bfs), 保存边的的关系
+- for each node，dfs/bfs
+
+3. topological sort - dfs/bfs
+- 有向图，建adjacent matrix 和 indegree(bfs)
+- bfs, 从 indegree 为 0 开始，res.add
+- dfs, forloop, 从任意点开始，helper funciton 最后 res.addLast
+
+4. union find
+- 静态找island：dfs/bfs, 用不用space
+- 动态找island：union find, 先find parent，如果不一样，union
+
+
+
+
+
+
+
+
+
+
+
+
 ```

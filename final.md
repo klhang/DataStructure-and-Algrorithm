@@ -8,7 +8,8 @@
 public int[] getTopk(int[] nums, int k){
   //set + priority queue
   Set<Integer> set = new HashSet<Integer>();
-  PriorityQuee<Integer> minHeap  = new PriorityQuee<>();
+
+  <Integer> minHeap  = new PriorityQuee<>();
 
   for (int num: nums){
     if (!set.contains(num)){
