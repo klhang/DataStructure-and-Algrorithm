@@ -50,7 +50,7 @@ Returns a Collection view of the values contained in this map.
 
 ! sum path problems -> String ,Integer, Boolean pass by value, List<Integer> path pass by reference, so need to backtracking by path.remove(path.size() -1);  
 
-! dfs + backtracking 模板
+
 
 !Set<Integer> skp = new HashSet<>(Arrays.asList(1,2,2,3,4,6));
 !map of <Integer, List> or map of <Integer, Set>    ->>> Map.get(0).add(1);   map of <Integer, Integer> ->>> map.put(0, map.get(0) + 1);
@@ -119,9 +119,6 @@ Returns a Collection view of the values contained in this map.
 
 
 
-
-
-
 ! Preacessor and successor of bst
 - while loop 左右，保留res，发现新的reset res
 - while loop 本身就是 recursive call，不要在while loop里再 call
@@ -181,6 +178,25 @@ the String.valueOf(char ) method of the String Class.
 - 动态找island：union find, 先find parent，如果不一样，union
 
 
+! dfs + backtracking 模板
+  main(arr){
+    result
+    item
+    dfs(arr, state, item, result)
+    return result;
+  }
+
+  dfs(arr, state, item, result){
+    if (state == meet){
+      result.add(item);
+      return;
+    }
+
+    for (int i = state, state < arr.length; i++){
+      dfs(arr, i + 1, item, result);
+      item.remove(item.size() -1);
+    }
+  }
 
 
 
